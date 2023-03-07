@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: arial;
+}
+
+.parent {
+    width: 1000px;
+    height: 370px;
+    margin: 100px auto;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    border-left: 10px solid #DDD;
+}
+
+.parent::before {
+    position: absolute;
+    content: 'Featured Products';
+    width: 19%;
+    height: 11%;
+    background-color: #326A79;
+    color: #FFF;
+    padding-right: 15px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    left: -10px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.parent>div {
+    width: calc((100% / 4) - 20px);
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 5px solid #DDD;
+}
+
+.parent>div :first-of-type {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.parent>div img {
+    height: 72%;
+}
+
+.parent>div p:nth-child(2) {
+    color: #696F7A;
+    font-size: 14px;
+}
+
+.parent>div :last-child {
+    color: #326A79;
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+}
+
+.parent>div:not(:nth-child(2)) :last-child::after {
+    content: '';
+    position: absolute;
+    width: 110%;
+    border-bottom: 3px solid #DDD;
+    left: 120%;
+    top: 27%;
+}
+
+.parent>div:not(:nth-child(2)) :last-child::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    border-bottom: 3px solid #DDD;
+    right: 120%;
+    top: 27%;
+}
+
+
+/* Setting Sale Sign on Product Two */
+
+.parent div:nth-child(2) {
+    position: relative;
+}
+
+.parent div:nth-child(2)::before {
+    content: 'Sale!';
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: tomato;
+    color: #FFF;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+
+/* Styling The Pragraghs in Product two */
+
+.parent div:nth-child(2) :last-child :first-child {
+    text-decoration: line-through;
+    color: #a4a4a4;
+}
+
+.parent div:nth-child(2) :last-child :last-child {
+    color: tomato;
+}
+
+.parent div:nth-child(2)> :last-child::before {
+    content: '';
+    position: absolute;
+    width: 30%;
+    border-bottom: 3px solid #DDD;
+    right: 109%;
+    top: 27%;
+}
+
+.parent div:nth-child(2)> :last-child::after {
+    content: '';
+    position: absolute;
+    width: 30%;
+    border-bottom: 3px solid #DDD;
+    left: 109%;
+    top: 27%;
+}
